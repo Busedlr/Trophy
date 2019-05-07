@@ -1,0 +1,13 @@
+
+.footer-title {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 18px;
+    cursor: pointer;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    text-decoration: none;
+    flex-grow: 1;
+    outline: none;
+  }
