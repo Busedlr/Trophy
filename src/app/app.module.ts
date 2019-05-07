@@ -1,20 +1,44 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Routes, RouterModule  } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { NewsComponent } from './news/news.component';
+import { SponsorComponent } from './sponsor/sponsor.component';
+import { PresentationComponent } from './presentation/presentation.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactComponent } from './contact/contact.component';
+import { OurProjectComponent } from './our-project/our-project.component';
+import { LinksComponent } from './links/links.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AboutUsComponent } from './about-us/about-us.component';
+
+const appRoutes: Routes = [
+  { path: 'about-us', component: AboutUsComponent},
+  { path: 'contact', component: ContactComponent},
+  { path: 'links', component: LinksComponent },
+  { path: 'news', component: NewsComponent },
+  { path: 'our-project', component: OurProjectComponent},
+  { path: 'presentation', component: PresentationComponent},
+  { path: 'sponsor', component: SponsorComponent}
+];
 
 @NgModule({
   declarations: [
     AppComponent,
+    NewsComponent,
+    SponsorComponent,
+    PresentationComponent,
+    AboutUsComponent,
+    ContactComponent,
+    OurProjectComponent,
+    LinksComponent,
     HeaderComponent,
-    FooterComponent,
-    AboutUsComponent
+    FooterComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
