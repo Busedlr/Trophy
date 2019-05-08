@@ -65,9 +65,10 @@ img {
 }
 
 .flex-container {
+  max-height: 80px;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-around;
   background-color: rgb(32, 31, 31);
   position: sticky;
