@@ -11,3 +11,10 @@
     flex-grow: 1;
     outline: none;
   }
+
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }

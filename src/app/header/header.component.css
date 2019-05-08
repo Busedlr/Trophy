@@ -15,6 +15,12 @@ img {
   object-fit: cover;
 }
 
+.header-image {
+  height: 320px; /* value must correspond to "if (window.pageYOffset < 300)" in header.component.ts */
+  background-color: pink;
+}
+
+
 .main-title {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: white;
@@ -30,8 +36,6 @@ img {
   text-align: center;
   text-shadow: 3px 2px black;
 }
-
-
 
 .navigation-title {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -52,4 +56,21 @@ img {
 
 .navigation-title:hover {
   background-color: rgb(56, 39, 38);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: rgb(32, 31, 31);
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
