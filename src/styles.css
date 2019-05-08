@@ -7,6 +7,9 @@
 #content-wrap {
   padding-bottom: 80px;
   padding-top: 500px;
+  width: 90%;
+  background-color: white;
+  margin-left: 5%;
 }
 
 #footer {
