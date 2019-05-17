@@ -12,6 +12,8 @@ import { OurProjectComponent } from './our-project/our-project.component';
 import { LinksComponent } from './links/links.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: 'about-us', component: AboutUsComponent},
@@ -34,11 +36,13 @@ const appRoutes: Routes = [
     OurProjectComponent,
     LinksComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
