@@ -45,7 +45,8 @@ export class ContactComponent implements OnInit {
         last_name: this.contactForm.controls.lastName.value,
         first_name: this.contactForm.controls.firstName.value,
         email: this.contactForm.controls.email.value,
-        comments: this.contactForm.controls.comments.value
+        comments: this.contactForm.controls.comments.value,
+        status: 0
       };
 
       this.contactsRef
