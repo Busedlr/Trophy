@@ -16,9 +16,6 @@ export class HeaderComponent implements OnInit {
     let navbar = document.getElementById("navbar");
     let sticky = navbar.offsetTop;
 
-    console.log("window.pageYOffset", window.pageYOffset);
-    console.log("sticky", sticky);
-
     if (window.pageYOffset >= sticky) {
       navbar.classList.add("sticky");
     } 
