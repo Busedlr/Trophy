@@ -13,6 +13,10 @@ export class ContactComponent implements OnInit {
   db: any;
   contactsRef: any;
   contactForm: FormGroup;
+  lastNameInvalid: boolean = false;
+  firstNameInvalid: boolean = false;
+  emailInvalid: boolean = false;
+  commentsInvalid: boolean = false;
 
   constructor(public formBuilder: FormBuilder) {
     this.db = firebase.firestore();
@@ -37,9 +41,30 @@ export class ContactComponent implements OnInit {
     });
   }
 
+  isInvalid() {
+    if(this.contactForm.controls.lastName.invalid ) {
+      this.lastNameInvalid = true;
+    }
+    if(this.contactForm.controls.firstName.invalid ) {
+      this.firstNameInvalid = true;
+    }
+    if(this.contactForm.controls.email.invalid ) {
+      this.emailInvalid = true;
+    }
+    if(this.contactForm.controls.comments.invalid ) {
+      this.commentsInvalid = true;
+    }
+  }
+
   submit() {
+    this.lastNameInvalid = false;
+    this.firstNameInvalid = false;
+    this.emailInvalid = false;
+    this.commentsInvalid = false;
+
     console.log(this.contactForm);
-    console.log(this.contactForm.valid);
+    this.isInvalid();
+   
     if (this.contactForm.valid) {
       let contactData = {
         last_name: this.contactForm.controls.lastName.value,

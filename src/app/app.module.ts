@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MessagesComponent } from './messages/messages.component';
 
 const appRoutes: Routes = [
   { path: 'about-us', component: AboutUsComponent},
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
   { path: 'news', component: NewsComponent },
   { path: 'our-project', component: OurProjectComponent},
   { path: 'presentation', component: PresentationComponent},
-  { path: 'sponsor', component: SponsorComponent}
+  { path: 'sponsor', component: SponsorComponent},
+  { path: 'messages', component: MessagesComponent}
 ];
 
 @NgModule({
@@ -37,7 +39,8 @@ const appRoutes: Routes = [
     LinksComponent,
     HeaderComponent,
     FooterComponent,
-    SidenavComponent
+    SidenavComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
