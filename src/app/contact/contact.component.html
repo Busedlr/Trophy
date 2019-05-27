@@ -13,19 +13,30 @@
     />
 
     <label for="firstName">Prenom</label>
-    <input [ngClass]="{
+    <input
+      [ngClass]="{
         'form-error': firstNameInvalid,
         'form-standard': !firstNameInvalid
-      }" type="text" id="firstName" formControlName="firstName" />
+      }"
+      type="text"
+      id="firstName"
+      formControlName="firstName"
+    />
 
     <label for="email">Email</label>
-    <input [ngClass]="{
+    <input
+      [ngClass]="{
         'form-error': emailInvalid,
         'form-standard': !emailInvalid
-      }" type="email" id="email" formControlName="email" />
+      }"
+      type="email"
+      id="email"
+      formControlName="email"
+    />
 
     <label for="comments">Commentaires</label>
-    <textarea [ngClass]="{
+    <textarea
+      [ngClass]="{
         'form-error': commentsInvalid,
         'form-standard': !commentsInvalid
       }"

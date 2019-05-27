@@ -14,7 +14,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MessagesComponent } from './messages/messages.component';
+import { MessagesComponent } from './contact/messages/messages.component';
+import { DataService } from './services/data.service';
+
 
 const appRoutes: Routes = [
   { path: 'about-us', component: AboutUsComponent},
@@ -47,7 +49,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

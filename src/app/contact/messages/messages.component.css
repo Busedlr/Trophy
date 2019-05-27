@@ -1,0 +1,30 @@
+.flex-container {
+  height: 300px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+  padding: 25px;
+  margin: 20px;
+  background-color: bisque;
+  border-radius: 20px;
+}
+
+.flex-item {
+    margin: 50px;
+    background-color:red;
+}
+
+
+.user-info {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.user-title {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}

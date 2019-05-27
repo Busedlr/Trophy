@@ -1,0 +1,26 @@
+<div class="user-title">Messages not contacted</div>
+<div *ngIf="!dataService.notContacted.length" class="user-info">
+  There is no message to contact
+</div>
+<div *ngFor="let contact of dataService.notContacted" class="user-info">
+  <div>From: {{ contact.first_name }} {{ contact.last_name }} </div>
+  <div>Email: {{ contact.email }}</div>
+  <div>Message: {{ contact.comments }}</div>
+  <div>id: {{ contact.id }}</div>
+  <div>status: {{ contact.status }}</div>
+  <button (click)="dataService.markContacted(contact.id)">Mark as contacted</button>
+</div>
+
+
+<div class="user-title">Contacted messages</div>
+<div *ngIf="!dataService.contacted.length" class="user-info">
+  No message was contacted yet
+</div>
+<div *ngFor="let contact of dataService.contacted" class="user-info">
+  <div>From: {{ contact.first_name }} {{ contact.last_name }} </div>
+  <div>Email: {{ contact.email }}</div>
+  <div>Message: {{ contact.comments }}</div>
+  <div>id: {{ contact.id }}</div>
+  <div>status: {{ contact.status }}</div>
+  <button (click)="dataService.markNotContacted(contact.id)">Mark as not contacted</button>
+</div>

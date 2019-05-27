@@ -1,8 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
-import * as firebase from "firebase/app";
-import "firebase/firestore";
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: "app-contact",
@@ -10,17 +9,15 @@ import "firebase/firestore";
   styleUrls: ["./contact.component.css"]
 })
 export class ContactComponent implements OnInit {
-  db: any;
-  contactsRef: any;
   contactForm: FormGroup;
+
   lastNameInvalid: boolean = false;
   firstNameInvalid: boolean = false;
   emailInvalid: boolean = false;
   commentsInvalid: boolean = false;
 
-  constructor(public formBuilder: FormBuilder) {
-    this.db = firebase.firestore();
-    this.contactsRef = this.db.collection("contacts");
+
+  constructor(public formBuilder: FormBuilder, public dataService : DataService ) {
     this.initForm();
   }
 
@@ -42,16 +39,16 @@ export class ContactComponent implements OnInit {
   }
 
   isInvalid() {
-    if(this.contactForm.controls.lastName.invalid ) {
+    if (this.contactForm.controls.lastName.invalid) {
       this.lastNameInvalid = true;
     }
-    if(this.contactForm.controls.firstName.invalid ) {
+    if (this.contactForm.controls.firstName.invalid) {
       this.firstNameInvalid = true;
     }
-    if(this.contactForm.controls.email.invalid ) {
+    if (this.contactForm.controls.email.invalid) {
       this.emailInvalid = true;
     }
-    if(this.contactForm.controls.comments.invalid ) {
+    if (this.contactForm.controls.comments.invalid) {
       this.commentsInvalid = true;
     }
   }
@@ -62,26 +59,12 @@ export class ContactComponent implements OnInit {
     this.emailInvalid = false;
     this.commentsInvalid = false;
 
-    console.log(this.contactForm);
+    console.log(this.contactForm.controls);
     this.isInvalid();
-   
-    if (this.contactForm.valid) {
-      let contactData = {
-        last_name: this.contactForm.controls.lastName.value,
-        first_name: this.contactForm.controls.firstName.value,
-        email: this.contactForm.controls.email.value,
-        comments: this.contactForm.controls.comments.value,
-        status: 0
-      };
 
-      this.contactsRef
-        .add(contactData)
-        .then(doc => {
-          console.log("document saved with id", doc.id);
-        })
-        .catch(error => {
-          console.log(error);
-        });
+    if (this.contactForm.valid) {
+      this.dataService.sendData(this.contactForm)
+
     }
   }
 }
