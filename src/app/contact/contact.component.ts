@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
-import { DataService } from '../services/data.service';
+import { DataService } from "../services/data.service";
 
 @Component({
   selector: "app-contact",
@@ -15,9 +15,12 @@ export class ContactComponent implements OnInit {
   firstNameInvalid: boolean = false;
   emailInvalid: boolean = false;
   commentsInvalid: boolean = false;
+  sentMessage: boolean = false;
 
-
-  constructor(public formBuilder: FormBuilder, public dataService : DataService ) {
+  constructor(
+    public formBuilder: FormBuilder,
+    public dataService: DataService
+  ) {
     this.initForm();
   }
 
@@ -38,7 +41,7 @@ export class ContactComponent implements OnInit {
     });
   }
 
-  isInvalid() {
+  checkInvalid() {
     if (this.contactForm.controls.lastName.invalid) {
       this.lastNameInvalid = true;
     }
@@ -53,18 +56,25 @@ export class ContactComponent implements OnInit {
     }
   }
 
+  isSentMessage() {
+    this.sentMessage = true;
+    setTimeout(() => {
+      this.sentMessage = false;
+      this.initForm();
+    }, 2000);
+  }
+
   submit() {
     this.lastNameInvalid = false;
     this.firstNameInvalid = false;
     this.emailInvalid = false;
     this.commentsInvalid = false;
 
-    console.log(this.contactForm.controls);
-    this.isInvalid();
+    this.checkInvalid();
 
     if (this.contactForm.valid) {
-      this.dataService.sendData(this.contactForm)
-
+      this.dataService.sendData(this.contactForm);
+      this.isSentMessage();
     }
   }
 }

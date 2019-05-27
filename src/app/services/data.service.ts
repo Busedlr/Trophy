@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ɵConsole } from "@angular/core";
 
 import * as firebase from "firebase/app";
 import "firebase/firestore";
@@ -11,6 +11,7 @@ export class DataService {
   contactsRef: any;
   notContacted = [];
   contacted = [];
+
 
   constructor() {
     this.db = firebase.firestore();
@@ -66,6 +67,7 @@ export class DataService {
       });
     console.log(this.contacted);
   }
+
 
   markContacted(id) {
     return this.contactsRef

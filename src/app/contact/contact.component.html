@@ -33,6 +33,7 @@
       id="email"
       formControlName="email"
     />
+    <div *ngIf="dataService.emailTaken">this email is already taken</div>
 
     <label for="comments">Commentaires</label>
     <textarea
@@ -48,4 +49,7 @@
 
     <button (click)="submit()">Envoyer</button>
   </form>
+  <!-- <div class="sent-message">Message is sent</div> -->
+  <div *ngIf="sentMessage" class="sentMessage">Message is sent</div>
 </div>
+
