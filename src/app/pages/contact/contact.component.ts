@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ContactData } from 'src/app/services/contact-data';
 
-import { DataService } from "../services/data.service";
+
 
 @Component({
   selector: "app-contact",
@@ -19,7 +20,7 @@ export class ContactComponent implements OnInit {
 
   constructor(
     public formBuilder: FormBuilder,
-    public dataService: DataService
+    public contactData: ContactData
   ) {
     this.initForm();
   }
@@ -73,7 +74,7 @@ export class ContactComponent implements OnInit {
     this.checkInvalid();
 
     if (this.contactForm.valid) {
-      this.dataService.sendData(this.contactForm);
+      this.contactData.sendData(this.contactForm);
       this.isSentMessage();
     }
   }

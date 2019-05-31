@@ -6,7 +6,7 @@ import "firebase/firestore";
 @Injectable({
   providedIn: "root"
 })
-export class DataService {
+export class ContactData {
   db: any;
   contactsRef: any;
   notContacted = [];

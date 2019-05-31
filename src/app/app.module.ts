@@ -3,19 +3,22 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule  } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { NewsComponent } from './news/news.component';
-import { SponsorComponent } from './sponsor/sponsor.component';
-import { PresentationComponent } from './presentation/presentation.component';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { ContactComponent } from './contact/contact.component';
-import { OurProjectComponent } from './our-project/our-project.component';
-import { LinksComponent } from './links/links.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
+import { NewsComponent } from './pages/news/news.component';
+import { SponsorComponent } from './pages/sponsor/sponsor.component';
+import { PresentationComponent } from './pages/presentation/presentation.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { OurProjectComponent } from './pages/our-project/our-project.component';
+import { LinksComponent } from './pages/links/links.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MessagesComponent } from './contact/messages/messages.component';
-import { DataService } from './services/data.service';
+import { AdminContactsComponent } from './admin/admin-contacts/admin-contacts.component';
+import { ContactData } from './services/contact-data';
+import { StorageService } from './services/storage-service';
+import { AdminNewsComponent } from './admin/admin-news/admin-news.component';
+import { NewsData } from './services/news-data';
 
 
 const appRoutes: Routes = [
@@ -26,7 +29,8 @@ const appRoutes: Routes = [
   { path: 'our-project', component: OurProjectComponent},
   { path: 'presentation', component: PresentationComponent},
   { path: 'sponsor', component: SponsorComponent},
-  { path: 'messages', component: MessagesComponent}
+  { path: 'admin-contacts', component: AdminContactsComponent},
+  { path: 'admin-news', component: AdminNewsComponent}
 ];
 
 @NgModule({
@@ -42,14 +46,15 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
-    MessagesComponent
+    AdminContactsComponent,
+    AdminNewsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [DataService],
+  providers: [ContactData, StorageService, NewsData],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

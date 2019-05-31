@@ -1,0 +1,8 @@
+<div *ngFor="let article of newsData.articles">
+  <div class="article">
+    <div>Title: {{ article.main_title }}</div>
+    <div>Subtitle: {{ article.subtitle }}</div>
+    <div>Text: {{ article.paragraph }}</div>
+    <img src="{{ newsData.imageUrl }}" alt="article image" />
+  </div>
+</div>

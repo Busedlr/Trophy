@@ -1,0 +1,26 @@
+<form [formGroup]="newsForm">
+  <div>
+    <label for="main-title">Main Title</label>
+    <input type="text" id="main-title" formControlName="mainTitle" />
+  </div>
+  <div>
+    <label for="subtitle">Subtitle</label>
+    <input type="text" id="subtitle" formControlName="subtitle" />
+  </div>
+  <div>
+    <label for="paragraph">Your text</label>
+    <textarea
+      name="paragraph"
+      id="paragraph"
+      cols="30"
+      rows="10"
+      formControlName="paragraph"
+    ></textarea>
+  </div>
+  <button (click)="sendData()">Send</button>
+</form>
+
+<div>
+    <label for="image" (click)="resetInput('image')">An image</label>
+    <input type="file" id="image" (change)="selectFile($event)" />
+  </div>
